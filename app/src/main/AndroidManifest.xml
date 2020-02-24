@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".signUp"></activity>
+        <activity android:name=".add_symptoms"></activity>
+        <activity android:name=".manger_add" />
+        <activity android:name=".signUp" />
         <activity android:name=".signIn" />
         <activity android:name=".wellcome" />
         <activity android:name=".MainActivity">
