@@ -14,4 +14,3 @@ public class all_remedy extends AppCompatActivity {
 }
 
 
-//

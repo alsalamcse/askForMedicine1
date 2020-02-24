@@ -17,7 +17,7 @@
         tools:layout_editor_absoluteY="26dp" />
 
     <ListView
-        android:id="@+id/listV"
+        android:id="@+id/myList"
         android:layout_width="422dp"
         android:layout_height="578dp"
         android:background="#00863636"

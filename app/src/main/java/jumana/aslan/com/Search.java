@@ -16,10 +16,11 @@ public class Search extends AppCompatActivity {
     private SearchView searchV;
     private TextView tvPeo,tvExp;
     private FloatingActionButton addPeo,addExp;
-    private ListView listV;
+    private ListView myList;
 
     ArrayList<String>list;
     ArrayAdapter<String>adapter;
+
 
 
     @Override
@@ -31,7 +32,31 @@ public class Search extends AppCompatActivity {
         tvPeo=findViewById(R.id.tvPeo);
         addExp=findViewById(R.id.addExp);
         addPeo=findViewById(R.id.addPeo);
-        listV=findViewById(R.id.listV);
+        myList=findViewById(R.id.myList);
+
+        list=new ArrayList<String>();
+
+        list.add("وصفة لالام الراس");
+        list.add("وصفة لالام الظهر");
+        list.add("وصفة لالام البطن");
+        list.add("وصفة لالام القدمين");
+        list.add("وصفة لالتهابات الحلق");
+        list.add("وصفة لالام المفاصل");
+
+        adapter=new ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
+        myList.setAdapter(adapter);
+        searchV.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
+            }
+        });
 
 
     }
