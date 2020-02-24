@@ -90,7 +90,7 @@ public class signIn extends AppCompatActivity {
                 if(task.isSuccessful())
                 {
                     //todo go to main screen (all task activity)
-                    Intent intent= new Intent(signIn.this,MainTasksActivity.class);
+                    Intent intent= new Intent(signIn.this,Search.class);
                     startActivity(intent);
                 }
                 else

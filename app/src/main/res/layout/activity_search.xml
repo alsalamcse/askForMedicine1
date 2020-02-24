@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Search">
+
+    <SearchView
+        android:layout_width="228dp"
+        android:layout_height="65dp"
+        android:background="#001F1E1E"
+        android:iconifiedByDefault="false"
+        android:queryHint="Search"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+    <ListView
+        android:layout_width="422dp"
+        android:layout_height="578dp"
+        android:background="#00863636"
+        tools:layout_editor_absoluteX="4dp"
+        tools:layout_editor_absoluteY="137dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:tint="#FFFFFF"
+        app:backgroundTint="#DF7E77"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_editor_absoluteX="329dp"
+        tools:layout_editor_absoluteY="29dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPeo"
+        android:layout_width="56dp"
+        android:layout_height="59dp"
+        android:backgroundTint="#FF80AB"
+        android:clickable="true"
+        android:tint="#FFFFFF"
+        app:backgroundTint="#883F57"
+        app:rippleColor="#0026245E"
+        app:srcCompat="@android:drawable/ic_input_add"
+        tools:layout_editor_absoluteX="251dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+    <TextView
+        android:id="@+id/tvP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="people add"
+        android:textColor="#000000"
+        tools:layout_editor_absoluteX="240dp"
+        tools:layout_editor_absoluteY="85dp" />
+
+    <TextView
+        android:id="@+id/tvExp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="experts add"
+        android:textColor="#141414"
+        tools:layout_editor_absoluteX="321dp"
+        tools:layout_editor_absoluteY="85dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
