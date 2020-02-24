@@ -7,6 +7,7 @@
     tools:context=".Search">
 
     <SearchView
+        android:id="@+id/searchV"
         android:layout_width="228dp"
         android:layout_height="65dp"
         android:background="#001F1E1E"
@@ -16,6 +17,7 @@
         tools:layout_editor_absoluteY="26dp" />
 
     <ListView
+        android:id="@+id/listV"
         android:layout_width="422dp"
         android:layout_height="578dp"
         android:background="#00863636"
@@ -47,7 +49,7 @@
         tools:layout_editor_absoluteY="26dp" />
 
     <TextView
-        android:id="@+id/tvP"
+        android:id="@+id/tvPeo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="people add"
