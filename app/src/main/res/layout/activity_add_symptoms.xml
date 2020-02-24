@@ -7,7 +7,7 @@
     tools:context=".add_symptoms">
 
     <Button
-        android:id="@+id/save3"
+        android:id="@+id/symSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="71dp"
