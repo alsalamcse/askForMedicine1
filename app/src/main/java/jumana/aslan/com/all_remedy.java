@@ -12,4 +12,6 @@ public class all_remedy extends AppCompatActivity {
         setContentView(R.layout.activity_all_remedy);
     }
 }
+
+
 //
