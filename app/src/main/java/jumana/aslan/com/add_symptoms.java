@@ -12,3 +12,4 @@ public class add_symptoms extends AppCompatActivity {
         setContentView(R.layout.activity_add_symptoms);
     }
 }
+//
