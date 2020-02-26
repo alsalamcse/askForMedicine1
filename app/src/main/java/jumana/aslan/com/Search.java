@@ -2,13 +2,16 @@ package jumana.aslan.com;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -57,7 +60,23 @@ public class Search extends AppCompatActivity {
                 return false;
             }
         });
-
-
+        addPeo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Add People medicine", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Intent intent =new Intent (getApplication(), add_symptoms.class);
+                startActivity(intent);
+            }
+        });
+        addExp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Add Expert medicine", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Intent intent =new Intent (getApplication(), add_symptoms.class);
+                startActivity(intent);
+            }
+        });
     }
 }

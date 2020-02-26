@@ -30,7 +30,15 @@ public class add_symptoms extends AppCompatActivity {
         symSave=findViewById(R.id.symSave);
 
 
-        symSave.setOnClickListener(new View.OnClickListener() {
+        symSave.setOnClickListener(new addPeo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Add People medicine", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+                Intent intent =new Intent (getApplication(), add_symptoms.class);
+                startActivity(intent);
+            }
+        }); View.OnClickListener() {
 
 
             @Override
