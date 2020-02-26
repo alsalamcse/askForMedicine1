@@ -1,5 +1,6 @@
 package jumana.aslan.com;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -10,13 +11,16 @@ import android.widget.RatingBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+
+import Data.mySymptoms;
 
 public class add_symptoms extends AppCompatActivity {
     private EditText symTitle,symSub;
     private Button symSave;
     private RatingBar ratBar;
-
+    private Object mySymptoms;
 
 
     @Override
@@ -29,89 +33,70 @@ public class add_symptoms extends AppCompatActivity {
         ratBar=findViewById(R.id.ratBar);
         symSave=findViewById(R.id.symSave);
 
-
-        symSave.setOnClickListener(new addPeo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Add People medicine", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                Intent intent =new Intent (getApplication(), add_symptoms.class);
-                startActivity(intent);
-            }
-        }); View.OnClickListener() {
-
-
+        symSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dataHandler();
             }
 
-            private void dataHandler()
-            {
-
-            }
         });
+    }
+    private void dataHandler()
+    {
+        String tittle=symTitle.getText().toString();
+        String subject=symSub.getText().toString();
+        int rate=ratBar.getProgress();
+        boolean isOk=true;
+
+        if(tittle.length()<1)
+        {
+           symTitle.setError("tittle length is error");
+            isOk=false;
+        }
+        if(subject.length()<1)
+        {
+           symSub.setError("subject length error");
+        }
+        if (isOk)
+        {
+            Data.mySymptoms sy=new mySymptoms();
+            sy.setTittle(tittle);
+            createSymptom(sy);
+            createSymptom(tittle,subject,rate);
+
+        }
 
     }
-    private void dataHandler() {
-        boolean isok = true;
-        String Title = symTitle.getText().toString();
-        String Subject = symSub.getText().toString();
-        int priority = ratBar.getProgress();
-
-        if (Title.length() == 0) {
-            symTitle.setError("Enter Title");
-            isok = false;
-        }
-        if (Subject.length() == 0) {
-            symSub.setError("Enter Subject");
-            isok = false;
-        }
-        if (isok) {
-            Task t = new Task();
-            t.setTitle(Title);
-            t.setSub(Subject);
-            t.setPriority(priority);
-
-            createTask(t);
-
-        }
-    }
-
-    //save data base
-    private void createTask(Task t) {
-        //1
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        //2
+    private void createSymptom(mySymptoms sy)
+    {
+        FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference();
-        //to get the user id (or other details like email)
         FirebaseAuth auth=FirebaseAuth.getInstance();
         String uid = auth.getCurrentUser().getUid();
-        t.setOwner(uid);
-
-
-        String key = reference.child("tasks").push().getKey();
-        t.setKey(key);
-        reference.child("tasks").child(uid).child(key).setValue(t).addOnCompleteListener(addTask.this, new OnCompleteListener<Void>() {
+        sy.setOwner(uid);
+        String key = reference.child("symptoms").push().getKey();
+        reference.child("symptoms").child(uid).child(key).setValue(sy).addOnCompleteListener(add_symptoms.this, new OnCompleteListener<Void>() {
             @Override
-            public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+            public void onComplete(@NonNull Task<Void> task)
+            {
                 if (task.isSuccessful())
                 {
-                    Toast.makeText(addTask.this, "Add ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(add_symptoms.this, "add successful", Toast.LENGTH_SHORT).show();
                     finish();
                 }
                 else
                 {
-                    Toast.makeText(addTask.this, "Add Failed"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                    task.getException(). printStackTrace();
+                    Toast.makeText(add_symptoms.this, "add failed"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    task.getException().printStackTrace();
                 }
             }
+
         });
+
     }
-
-
-
+    private void createSymptom(String tittle, String subject, int rate)
+    {
+    }
 }
 
 
