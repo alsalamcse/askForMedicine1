@@ -1,6 +1,6 @@
-package Data;
+package jumana.aslan.com.Data;
 
-public class mySymptoms
+public class MySymptoms
 {    private String key,tittle,subject;
     private int important;
     private String owner;

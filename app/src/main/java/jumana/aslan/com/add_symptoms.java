@@ -13,8 +13,10 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-import Data.mySymptoms;
+import jumana.aslan.com.Data.MySymptoms;
 
 public class add_symptoms extends AppCompatActivity {
     private EditText symTitle,symSub;
@@ -59,7 +61,7 @@ public class add_symptoms extends AppCompatActivity {
         }
         if (isOk)
         {
-            Data.mySymptoms sy=new mySymptoms();
+            MySymptoms sy=new MySymptoms();
             sy.setTittle(tittle);
             createSymptom(sy);
             createSymptom(tittle,subject,rate);
@@ -67,7 +69,7 @@ public class add_symptoms extends AppCompatActivity {
         }
 
     }
-    private void createSymptom(mySymptoms sy)
+    private void createSymptom(MySymptoms sy)
     {
         FirebaseDatabase database=FirebaseDatabase.getInstance();
         DatabaseReference reference = database.getReference();
