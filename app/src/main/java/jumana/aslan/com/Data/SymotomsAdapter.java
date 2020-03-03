@@ -24,9 +24,9 @@ import jumana.aslan.com.R;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-public class TaskAdapter extends ArrayAdapter<MySymptoms>
+public class SymotomsAdapter extends ArrayAdapter<MySymptoms>
 {
-    public TaskAdapter(@NonNull Context context) {
+    public SymotomsAdapter(@NonNull Context context) {
         super(context, R.layout.itemremedy);
     }
     @NonNull

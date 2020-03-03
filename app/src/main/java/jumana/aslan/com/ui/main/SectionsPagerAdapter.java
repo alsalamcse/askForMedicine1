@@ -16,6 +16,8 @@ import jumana.aslan.com.R;
  */
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
+    private AllSymptoms allSymptoms;
+
     @StringRes
     private static final int[] TAB_TITLES = new int[]{R.string.tab_text_1, R.string.tab_text_2};
     private final Context mContext;
@@ -23,13 +25,14 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public SectionsPagerAdapter(Context context, FragmentManager fm) {
         super(fm);
         mContext = context;
+        allSymptoms=new AllSymptoms();
     }
 
     @Override
     public Fragment getItem(int position) {
-        // getItem is called to instantiate the fragment for the given page.
-        // Return a PlaceholderFragment (defined as a static inner class below).
-        return PlaceholderFragment.newInstance();
+        if(position==0)
+            return allSymptoms;
+        return null;
     }
 
     @Nullable
@@ -41,6 +44,6 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // Show 2 total pages.
-        return 2;
+        return 1;
     }
 }

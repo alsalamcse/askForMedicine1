@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainMedcActivity"
-            android:label="@string/title_activity_main_medc"
+            android:name=".MainSymptoms"
+            android:label="@string/title_activity_main_symptoms"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".add_symptoms" />
         <activity android:name=".manger_add" />

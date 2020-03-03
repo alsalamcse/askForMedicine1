@@ -1,5 +1,6 @@
 package jumana.aslan.com;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -15,12 +16,12 @@ import android.view.View;
 
 import jumana.aslan.com.ui.main.SectionsPagerAdapter;
 
-public class MainMedcActivity extends AppCompatActivity {
+public class MainSymptoms extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_medc);
+        setContentView(R.layout.activity_main_symptoms);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
@@ -33,6 +34,8 @@ public class MainMedcActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent intent=new Intent(getApplication(),add_symptoms.class);
+                startActivity(intent);
             }
         });
     }
