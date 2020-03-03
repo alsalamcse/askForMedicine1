@@ -37,6 +37,7 @@ public class SymotomsAdapter extends ArrayAdapter<MySymptoms>
         TextView tvSubject = vitem.findViewById(R.id.itmTvSub);
         RatingBar rbPrio = vitem.findViewById(R.id.ratingBar3);
         CheckBox cbIsCompleted = vitem.findViewById(R.id.itmisManger);
+        CheckBox checkBoxdelete = vitem.findViewById(R.id.chboxDelete);
         final ImageView ivInfo = vitem.findViewById(R.id.itmImginfo);
 
         final MySymptoms mySymptoms = getItem(position);
@@ -65,16 +66,30 @@ public class SymotomsAdapter extends ArrayAdapter<MySymptoms>
                 }
             }
         });
-          ivInfo.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(getContext(), mySymptoms.getTittle(), LENGTH_SHORT).show();
-                  ShowMenu();
 
+        cbIsCompleted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    FireBaseUtils.getReferance().child(mySymptoms.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                        @Override
+                        public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                            if (databaseError == null) {
+                                Toast.makeText(getContext(), "delete", Toast.LENGTH_SHORT).show();
 
+                            } else {
+                                Toast.makeText(getContext(), "not deleted", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
+            }
+        });
 
-          });
+
+
+
+
 
         MySymptoms symptoms = getItem(position);
         tvTitle.setText(symptoms.getTittle());
@@ -83,34 +98,8 @@ public class SymotomsAdapter extends ArrayAdapter<MySymptoms>
         cbIsCompleted.setChecked(false);
         return vitem;
     }
-    public void ShowMenu() {
-
-        final String[] option = {"Add", "View", "Select", "Delete"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.select_dialog_item);
-        adapter.addAll(option);
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        builder.setTitle("Select op   tion");
-        builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-
-                if (i == 0) {
-                    Toast.makeText(getContext(), "Add", Toast.LENGTH_SHORT).show();
-                }
-                if (i == 1) {
-                    Toast.makeText(getContext(), "View", Toast.LENGTH_SHORT).show();
-                }
-                if (i == 2) {
-                    Toast.makeText(getContext(), "Select", Toast.LENGTH_SHORT).show();
-                }
-                if (i == 3) {
-                    Toast.makeText(getContext(), "Delete", Toast.LENGTH_SHORT).show();
-                }
 
 
-            }
-        });
-        final AlertDialog a = builder.create();
-        a.show();
-    }
+
+
 }

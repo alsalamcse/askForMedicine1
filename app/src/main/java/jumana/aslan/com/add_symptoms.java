@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ public class add_symptoms extends AppCompatActivity {
     private EditText symTitle,symSub;
     private Button symSave;
     private RatingBar ratBar;
+    private CheckBox chboxDelete,itmisManger;
     private Object mySymptoms;
 
 
