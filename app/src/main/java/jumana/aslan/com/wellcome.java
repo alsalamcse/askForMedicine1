@@ -26,9 +26,8 @@ public class wellcome extends AppCompatActivity {
                     }
                     else
                     {
-                        Intent i = new Intent(getApplication(), Search.class);
+                        Intent i = new Intent(getApplication(), MainSymptoms.class);
                         startActivity(i);
-                        finish();
                     }
                 }
                 catch (InterruptedException e) {
