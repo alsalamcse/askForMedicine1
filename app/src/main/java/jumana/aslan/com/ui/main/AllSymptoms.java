@@ -49,10 +49,10 @@ public class AllSymptoms extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        readTaskFromFireBase();
-    }
 
-    public void readTaskFromFireBase()
+        readTaskFromFireBase("");
+    }
+    public void readTaskFromFireBase(final String toSearch)
     {
 
         FirebaseDatabase database=FirebaseDatabase.getInstance();//to get current Uid
@@ -64,12 +64,20 @@ public class AllSymptoms extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
-               symotomsAdapter.clear();;
+                symotomsAdapter.clear();;
                 for (DataSnapshot d : dataSnapshot.getChildren()) {
 
                     MySymptoms t = d.getValue(MySymptoms.class);
-                    Log.d("MySymptoms",t.toString());
-                    symotomsAdapter.add(t);
+                    if(toSearch.length()>0 && t.getTittle().contains(toSearch)) {
+                        Log.d("MySymptoms", t.toString());
+                        symotomsAdapter.add(t);
+                    }
+                    else {
+                        if(toSearch.length()==0) {
+                            Log.d("MySymptoms", t.toString());
+                            symotomsAdapter.add(t);
+                        }
+                    }
                 }
 
             }
@@ -81,4 +89,5 @@ public class AllSymptoms extends Fragment {
         });
 
     }
+
 }

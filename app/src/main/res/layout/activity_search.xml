@@ -8,54 +8,63 @@
 
     <SearchView
         android:id="@+id/searchV"
-        android:layout_width="228dp"
-        android:layout_height="65dp"
+        android:layout_width="257dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:background="#001F1E1E"
         android:iconifiedByDefault="false"
         android:queryHint="Search"
-        tools:layout_editor_absoluteX="12dp"
-        tools:layout_editor_absoluteY="26dp" />
+        app:layout_constraintEnd_toStartOf="@+id/addPeo"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
         android:id="@+id/myList"
         android:layout_width="422dp"
-        android:layout_height="578dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="16dp"
         android:background="#00863636"
-        tools:layout_editor_absoluteX="4dp"
-        tools:layout_editor_absoluteY="137dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addExp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="6dp"
         android:clickable="true"
         android:tint="#FFFFFF"
         app:backgroundTint="#DF7E77"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="329dp"
-        tools:layout_editor_absoluteY="29dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addPeo"
-        android:layout_width="56dp"
-        android:layout_height="59dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:backgroundTint="#FF80AB"
         android:clickable="true"
         android:tint="#FFFFFF"
         app:backgroundTint="#883F57"
+        app:layout_constraintEnd_toStartOf="@+id/tvExp"
+        app:layout_constraintTop_toTopOf="@+id/searchV"
         app:rippleColor="#0026245E"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteX="251dp"
-        tools:layout_editor_absoluteY="26dp" />
+        app:srcCompat="@android:drawable/ic_input_add" />
 
     <TextView
         android:id="@+id/tvPeo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
         android:text="people add"
         android:textColor="#000000"
-        tools:layout_editor_absoluteX="240dp"
-        tools:layout_editor_absoluteY="85dp" />
+        app:layout_constraintEnd_toStartOf="@+id/tvExp"
+        app:layout_constraintTop_toBottomOf="@+id/addPeo" />
 
     <TextView
         android:id="@+id/tvExp"
@@ -63,6 +72,7 @@
         android:layout_height="wrap_content"
         android:text="experts add"
         android:textColor="#141414"
-        tools:layout_editor_absoluteX="321dp"
-        tools:layout_editor_absoluteY="85dp" />
+        app:layout_constraintBaseline_toBaselineOf="@+id/tvPeo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/addExp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

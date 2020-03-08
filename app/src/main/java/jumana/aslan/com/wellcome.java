@@ -26,7 +26,7 @@ public class wellcome extends AppCompatActivity {
                     }
                     else
                     {
-                        Intent i = new Intent(getApplication(), MainSymptoms.class);
+                        Intent i = new Intent(getApplication(), Search.class);
                         startActivity(i);
                     }
                 }

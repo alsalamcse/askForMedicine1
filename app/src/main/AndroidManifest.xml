@@ -17,6 +17,7 @@
         <activity android:name=".manger_add" />
         <activity android:name=".signUp" />
         <activity android:name=".signIn" />
+        <activity android:name=".Search"></activity>
         <activity android:name=".wellcome" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

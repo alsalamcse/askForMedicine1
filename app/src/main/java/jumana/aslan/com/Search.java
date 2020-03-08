@@ -12,6 +12,9 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -22,11 +25,11 @@ public class Search extends AppCompatActivity {
     private ListView myList;
 
     ArrayList<String>list;
-    ArrayAdapter<String>adapter;
+   ArrayAdapter<String>adapter;
 
 
 
-    @Override
+   // @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
@@ -39,7 +42,7 @@ public class Search extends AppCompatActivity {
 
         list=new ArrayList<String>();
 
-        list.add("وصفة لالام الراس");
+        list.add("asa");
         list.add("وصفة لالام الظهر");
         list.add("وصفة لالام البطن");
         list.add("وصفة لالام القدمين");
@@ -78,5 +81,5 @@ public class Search extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-}
+
+}}
