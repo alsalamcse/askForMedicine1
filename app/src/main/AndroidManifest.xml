@@ -9,25 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Add_Photo"></activity>
         <activity
             android:name=".MainSymptoms"
             android:label="@string/title_activity_main_symptoms"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".add_symptoms" />
         <activity android:name=".manger_add" />
         <activity android:name=".signUp" />
         <activity android:name=".signIn" />
-        <activity android:name=".Search"></activity>
-        <activity android:name=".wellcome" >
+        <activity android:name=".Search" />
+        <activity android:name=".wellcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
