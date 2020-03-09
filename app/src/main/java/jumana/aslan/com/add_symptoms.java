@@ -23,7 +23,7 @@ import jumana.aslan.com.Data.MySymptoms;
 public class add_symptoms extends AppCompatActivity {
     private EditText symTitle,symSub;
     private Button symSave;
-    private RatingBar ratBar;
+    private RatingBar symptomRatBar;
     private CheckBox chboxDelete,itmisManger;
     private Object mySymptoms;
     private FloatingActionButton clientAddPhoto;
@@ -36,7 +36,7 @@ public class add_symptoms extends AppCompatActivity {
 
         symTitle=findViewById(R.id.symTitle);
         symSub=findViewById(R.id.symSub);
-        ratBar=findViewById(R.id.ratBar);
+        symptomRatBar=findViewById(R.id.symptomRatBar);
         symSave=findViewById(R.id.symSave);
         clientAddPhoto=findViewById(R.id.clientAddPhoto);
 
@@ -52,7 +52,7 @@ public class add_symptoms extends AppCompatActivity {
     {
         String tittle=symTitle.getText().toString();
         String subject=symSub.getText().toString();
-        int rate=ratBar.getProgress();
+        int rate=symptomRatBar.getProgress();
         boolean isOk=true;
 
         if(tittle.length()<1)
