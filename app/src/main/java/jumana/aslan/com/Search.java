@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class Search extends AppCompatActivity {
     private TextView tvPeo,tvExp;
     private FloatingActionButton addPeo,addExp;
     private ListView myList;
+    private Button moveToTabs;
 
     ArrayList<String>list;
    ArrayAdapter<String>adapter;
@@ -39,8 +41,17 @@ public class Search extends AppCompatActivity {
         addExp=findViewById(R.id.addExp);
         addPeo=findViewById(R.id.addPeo);
         myList=findViewById(R.id.myList);
+        moveToTabs=findViewById(R.id.moveToTabs);
 
-        list=new ArrayList<String>();
+        moveToTabs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent i=new Intent(getApplicationContext(),MainSymptoms.class);
+                startActivity(i);
+
+
+                list=new ArrayList<String>();
 
         list.add("asa");
         list.add("وصفة لالام الظهر");
