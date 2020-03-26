@@ -9,6 +9,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -25,6 +27,11 @@ import jumana.aslan.com.R;
 public class AllSymptoms extends Fragment {
     private SymotomsAdapter symotomsAdapter;
     private ListView listView;
+
+    //0 search: add ET amd Btn to xml
+    //1 search:
+    private ImageView imSearch;
+    private EditText etTitleTosearch;
 
 
     public AllSymptoms() {
@@ -43,16 +50,33 @@ public class AllSymptoms extends Fragment {
         View view = inflater.inflate(R.layout.fragment_all_symptoms, container, false);
         listView=view.findViewById(R.id.lstSymptoms);
         listView.setAdapter(symotomsAdapter);
+
+        //2 search:
+        imSearch=view.findViewById(R.id.imSearch);
+        etTitleTosearch=view.findViewById(R.id.etTitleTosearch);
+        //3 search event
+        imSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String toSearch= etTitleTosearch.getText().toString();
+                //5 search
+                readTaskFromFireBase(toSearch);
+
+            }
+        });
+
+
+
         return view;
 
     }
     @Override
     public void onResume() {
         super.onResume();
-
-        readTaskFromFireBase("");
+        //6 search: delete method calling
+        //readTaskFromFireBase("");
     }
-    public void readTaskFromFireBase(final String toSearch)
+    public void readTaskFromFireBase(final String stToSearch)
     {
 
         FirebaseDatabase database=FirebaseDatabase.getInstance();//to get current Uid
@@ -65,18 +89,20 @@ public class AllSymptoms extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 symotomsAdapter.clear();;
-                for (DataSnapshot d : dataSnapshot.getChildren()) {
-
+                for (DataSnapshot d : dataSnapshot.getChildren())
+                {
                     MySymptoms t = d.getValue(MySymptoms.class);
-                    if(toSearch.length()>0 && t.getTittle().contains(toSearch)) {
-                        Log.d("MySymptoms", t.toString());
+                    Log.d("MySymptoms", t.toString());
+                    //5 search:
+                    if(stToSearch==null || stToSearch.length()==0)
+                    {
                         symotomsAdapter.add(t);
                     }
-                    else {
-                        if(toSearch.length()==0) {
-                            Log.d("MySymptoms", t.toString());
-                            symotomsAdapter.add(t);
-                        }
+                    else //6 search:
+                        {
+                            if(t.getTittle().contains(stToSearch))
+                                symotomsAdapter.add(t);
+
                     }
                 }
 

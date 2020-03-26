@@ -6,17 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".Search">
 
-    <SearchView
-        android:id="@+id/searchV"
-        android:layout_width="257dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="#001F1E1E"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search"
-        app:layout_constraintEnd_toStartOf="@+id/addPeo"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ListView
         android:id="@+id/myList"
         android:layout_width="422dp"
@@ -27,7 +16,7 @@
         android:background="#00863636"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvExp" />
+        app:layout_constraintTop_toBottomOf="@+id/addPeo" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addExp"
@@ -39,6 +28,7 @@
         android:tint="#FFFFFF"
         app:backgroundTint="#DF7E77"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/etTitleTosearch"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
@@ -46,13 +36,15 @@
         android:id="@+id/addPeo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="63dp"
         android:backgroundTint="#FF80AB"
         android:clickable="true"
         android:tint="#FFFFFF"
         app:backgroundTint="#883F57"
+        app:layout_constraintBottom_toTopOf="@+id/myList"
         app:layout_constraintEnd_toStartOf="@+id/tvExp"
-        app:layout_constraintTop_toTopOf="@+id/searchV"
+        app:layout_constraintTop_toTopOf="parent"
         app:rippleColor="#0026245E"
         app:srcCompat="@android:drawable/ic_input_add" />
 
@@ -81,8 +73,33 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="27dp"
+        android:layout_marginBottom="576dp"
         android:text="move To Tabs"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/myList"
-        app:layout_constraintTop_toBottomOf="@+id/searchV" />
+        app:layout_constraintTop_toBottomOf="@+id/etTitleTosearch" />
+
+    <TextView
+        android:id="@+id/etTitleTosearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="23dp"
+        android:text="Name"
+        app:layout_constraintBottom_toTopOf="@+id/moveToTabs"
+        app:layout_constraintEnd_toStartOf="@+id/addExp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imSearch" />
+
+    <ImageButton
+        android:id="@+id/imSearch"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/etTitleTosearch"
+        app:layout_constraintEnd_toEndOf="@+id/etTitleTosearch"
+        app:layout_constraintStart_toStartOf="@+id/myList"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_search_category_default" />
 </androidx.constraintlayout.widget.ConstraintLayout>
