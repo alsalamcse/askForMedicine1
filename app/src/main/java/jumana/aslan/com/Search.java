@@ -20,7 +20,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
-    private SearchView searchV;
+
     private TextView tvPeo,tvExp;
     private FloatingActionButton addPeo,addExp;
     private ListView myList;
@@ -35,7 +35,7 @@ public class Search extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
-        searchV=findViewById(R.id.searchV);
+
         tvExp=findViewById(R.id.tvExp);
         tvPeo=findViewById(R.id.tvPeo);
         addExp=findViewById(R.id.addExp);
